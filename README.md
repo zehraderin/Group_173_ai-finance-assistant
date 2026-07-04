@@ -10,7 +10,7 @@ Takım 173
 
 ## Ürün İsmi
 
---Montee-
+--Montee--
 
 ## Ürün Açıklaması
 
@@ -18,18 +18,16 @@ Takım 173
 
 ## Ürün Özellikleri
 
-- Filmleri türüne göre ayırma
-- Filmlerin yönetmen, aktör, aktris vb. bilgilerini posteriyle birlikte gösterme
-- IMDB ve Rotten Tomatoes puanlarını gösterme
-- Netflix'te ve Prime'da bulunurluğunu gösterme
+- Otomatik Harcama Kategorizasyonu
+- Akıllı Bütçe Yönetimi
+- Abonelik Takibi
+- Kişiselleştirilmiş Tasarruf Mentorluğu
 
 ## Hedef Kitle
 
-- Netflix kullanıcıları
-- Prime kullanıcıları
-- Sinema severler
-- Dizi severler
-- 15 - 65 yaş arası kullanıcılar
+- Dijital Bankacılık Kullanıcıları
+- Bütçe Kontrolü ve Birikim Hedefi Olanlar
+- Gençler ve Öğrenciler
 
 ## Product Backlog URL
 
