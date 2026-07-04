@@ -1,22 +1,20 @@
 # **Takım İsmi**
 
-Takım X
+Takım 173
 
 # Ürün İle İlgili Bilgiler
 
 ## Takım Elemanları
 
-- John Doe: Product Owner
-- Jane Doe: Scrum Master
-- Atıl Samancıoğlu: Team Member/Developer
+- Zehra Nur Derin: Product Owner / Scrum Master / Data Scientist & Developer
 
 ## Ürün İsmi
 
---Movie App--
+--Montee-
 
 ## Ürün Açıklaması
 
-- Movie App uygulamamız ile insanların izlemek istediği filmlere ve dizilere daha kolay karar vermesini sağlayacağız. İçerisinde binlerce filmi barındıran uygulamamız aynı zamanda Netflix, Prime vb. platformlarda yayınlanıp yayınlanmadığını ve IMDB puanlarını da gösterecek.
+- Montee, kullanıcıların karmaşık banka hesap hareketlerini ve harcamalarını yapay zekâ desteğiyle analiz ederek bütçe takibini kolaylaştıran ve finansal okuryazarlığı artıran akıllı bir finans asistanıdır. İsmini "Money" (Para) ve "Mentee" (Rehberlik Alan) kavramlarının sentezinden alan Montee, kullanıcısına finansal dünyada akıllı bir mentor gibi rehberlik eder.
 
 ## Ürün Özellikleri
 
