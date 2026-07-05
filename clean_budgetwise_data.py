@@ -16,6 +16,7 @@ Temizlenen alanlar:
 Çıktı: budgetwise_cleaned.csv
 """
 
+import re
 import pandas as pd
 from rapidfuzz import process, fuzz
 
@@ -71,14 +72,15 @@ def normalize_date(raw_value):
 # 4. Tutar normalizasyonu (para birimi sembolleri, virgüller, outlier'lar)
 # ---------------------------------------------------------------------------
 AMOUNT_OUTLIER_PLACEHOLDER = 999_999_999
+# Rs., ₹, $ gibi para birimi sembollerini ve binlik ayıraç virgüllerini
+# tek bir regex ile temizler (birden fazla .replace() çağrısı yerine).
+_CURRENCY_NOISE_PATTERN = re.compile(r"(Rs\.?|₹|\$|,)")
 
 
 def normalize_amount(raw_value):
     if pd.isna(raw_value):
         return None
-    text = str(raw_value)
-    text = text.replace("Rs.", "").replace("₹", "").replace("$", "")
-    text = text.replace(",", "").strip()
+    text = _CURRENCY_NOISE_PATTERN.sub("", str(raw_value)).strip()
     try:
         value = float(text)
     except ValueError:
@@ -131,6 +133,9 @@ def normalize_location(raw_value):
 # 7. Notes alanındaki anlamsız/test verisi kalıntılarını temizleme
 # ---------------------------------------------------------------------------
 NOTES_JUNK_VALUES = {"test", "asdfgh", "xyz123", "...", "!!!", "misc"}
+# Harf+rakam karışık, boşluksuz, 8 karakterden uzun rastgele string'leri yakalar
+# (örn. 'hZtATyn1UX55solCMr1') - gerçek bir işlem notu bu formatta olmaz.
+_RANDOM_STRING_PATTERN = re.compile(r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z0-9]{9,}$")
 
 
 def clean_notes(raw_value):
@@ -139,8 +144,7 @@ def clean_notes(raw_value):
     value = str(raw_value).strip()
     if value.lower() in NOTES_JUNK_VALUES:
         return None
-    # rastgele karışık alfasayısal string'ler (örn. 'hZtATyn1UX55solCMr1')
-    if len(value) > 8 and value.isalnum() and not value.isalpha() and " " not in value:
+    if _RANDOM_STRING_PATTERN.match(value):
         return None
     return value
 
