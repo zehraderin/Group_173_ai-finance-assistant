@@ -37,9 +37,9 @@ Takım 173
 
 # Sprint 1
 
-- **Backlog düzeni ve Story seçimleri**:: Backlog, veri toplama → veri temizleme → sentetik veri zenginleştirme → ilk model eğitimi → dokümantasyon şeklinde mantıksal bir akışa göre sıralanmıştır.
+- **Backlog düzeni ve Story seçimleri**: Backlog, veri toplama → veri temizleme → sentetik veri zenginleştirme → ilk model eğitimi → dokümantasyon şeklinde mantıksal bir akışa göre sıralanmıştır.
 
-- Sprint Kapsamında Yapılanlar:
+- **Sprint Kapsamında Yapılanlar**:
 
 Kaggle'dan uygun banka işlem veri seti indirildi (BudgetWise Finance Dataset, ~31.700 satır)
 Kategori alanındaki 200+ yazım hatası varyantı fuzzy matching ile 15 kanonik kategoriye normalize edildi
@@ -48,11 +48,12 @@ Faker ile gerçekçi sentetik işlem açıklamaları üretilip gerçek veriyle b
 TF-IDF + Random Forest ile ilk harcama sınıflandırma modeli eğitildi (Accuracy: %81, F1-macro: %77)
 Ürün ismi "Montee" olarak kilitlendi, README hazırlandı
 
-Miro Board'da gözüken kırmızı item'lar yapılacak işleri (task) gösterirken, mavi item'lar story'leri temsil etmektedir.
+**Not**: Miro Board'da gözüken kırmızı item'lar yapılacak işleri (task) gösterirken, mavi item'lar story'leri temsil etmektedir.
 
 - **Daily Scrum**: Takım tek kişiden oluştuğu için Daily Scrum toplantısı yapılmamıştır.
 
 - **Sprint board update**: Sprint board screenshotları: 
+
 ![Backlog 1]<img width="931" height="505" alt="Screenshot 2026-07-05 at 21 18 58" src="https://github.com/user-attachments/assets/696ad38a-2cbf-4c67-8f70-20dcf77f0601" />
 
 ![Backlog 2]<img width="984" height="394" alt="Screenshot 2026-07-05 at 22 18 17" src="https://github.com/user-attachments/assets/2973bd16-1c88-4f39-9439-1aa5dac1fac6" />
@@ -60,9 +61,10 @@ Miro Board'da gözüken kırmızı item'lar yapılacak işleri (task) gösterirk
 ![Backlog 3] <img width="988" height="525" alt="Screenshot 2026-07-05 at 23 29 36" src="https://github.com/user-attachments/assets/ef9621cc-2fc3-41f8-9b07-1772fab557d2" />
 
 
-- **Ürün Durumu**: Ekran görüntüleri:
-  ![Screenshot 1](https://github.com/OyunveUygulamaAkademisi/BootcampScrumTemplate/blob/main/ProjectManagement/Sprint1Documents/productss1.png?raw=true)
-  ![Screenshot 2](https://github.com/OyunveUygulamaAkademisi/BootcampScrumTemplate/blob/main/ProjectManagement/Sprint1Documents/productss2.png?raw=true)
+- **İlk Model Performansı**: Ekran görüntüleri:
+  ![Screenshot 1]
+<img width="402" height="251" alt="Screenshot 2026-07-05 at 23 46 12" src="https://github.com/user-attachments/assets/3ce1aa03-c0f7-4a79-a71a-25ae9809e379" />
+
 
 - **Sprint Review**: 
 Gerçek veri setlerindeki açıklama metinlerinin kategoriyle anlamsal ilişkisi olmadığı tespit edilmiş; gerçek veri (yapı için) ve sentetik veri (metin sinyali için) birleştirilerek çözülmüştür. İlk model %81 doğrulukla eğitilmiş, sonuç gerçekçi bulunmuştur.
