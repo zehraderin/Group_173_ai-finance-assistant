@@ -31,7 +31,7 @@ Takım 173
 
 ## Product Backlog URL
 
-[Miro Backlog Board](https://miro.com/app/board/uXjVOSSCpsI=/)
+[Miro Backlog Board](https://miro.com/app/live-embed/uXjVH-peL5Y=/?embedMode=view_only_without_ui&moveToViewport=-1748%2C-723%2C2339%2C1301&embedId=267636883746)
 
 ---
 
