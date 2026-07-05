@@ -53,9 +53,10 @@ Miro Board'da gözüken kırmızı item'lar yapılacak işleri (task) gösterirk
 - **Daily Scrum**: Takım tek kişiden oluştuğu için Daily Scrum toplantısı yapılmamıştır.
 
 - **Sprint board update**: Sprint board screenshotları: 
+![Backlog 1]<img width="931" height="505" alt="Screenshot 2026-07-05 at 21 18 58" src="https://github.com/user-attachments/assets/696ad38a-2cbf-4c67-8f70-20dcf77f0601" />
 
-klog 1](https://raw.githubusercontent.com/OyunveUygulamaAkademisi/BootcampScrumTemplate/main/ProjectManagement/Sprint1Documents/backlog1.png) 
-![Backlog 2](https://raw.githubusercontent.com/OyunveUygulamaAkademisi/BootcampScrumTemplate/main/ProjectManagement/Sprint1Documents/backlog2.png) 
+![Backlog 2]<img width="984" height="394" alt="Screenshot 2026-07-05 at 22 18 17" src="https://github.com/user-attachments/assets/2973bd16-1c88-4f39-9439-1aa5dac1fac6" />
+
 ![Backlog 3] <img width="988" height="525" alt="Screenshot 2026-07-05 at 23 29 36" src="https://github.com/user-attachments/assets/ef9621cc-2fc3-41f8-9b07-1772fab557d2" />
 
 
