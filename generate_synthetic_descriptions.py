@@ -13,6 +13,7 @@ Girdi : budgetwise_cleaned.csv
 """
 
 import random
+import re
 import pandas as pd
 from faker import Faker
 
@@ -85,7 +86,29 @@ CATEGORY_TEMPLATES = {
     ],
 }
 
-# Her kategoriye özel, bağlamsal olarak anlamlı marka/merchant havuzu.
+# Kategoriler arası belirsiz/ortak açıklamalar - gerçek banka ekstrelerinde
+# olduğu gibi bazı işlemler tek başına kategoriyi net belirtmez.
+AMBIGUOUS_TEMPLATES = [
+    "ATM WITHDRAWAL", "PAYMENT", "TRANSFER", "ONLINE PAYMENT #{ref}",
+    "POS PURCHASE", "CARD PAYMENT #{ref}", "DEBIT TRANSACTION",
+]
+AMBIGUOUS_NOISE_RATE = 0.12  # satırların ~%12'sine belirsiz açıklama ata
+
+GENERIC_NOISE_RATE = 0.08  # satırların ~%8'inde sadece jenerik ifade
+GENERIC_TEMPLATES = ["PAYMENT", "TRANSACTION", "TRANSFER", "PURCHASE"]
+
+TYPO_RATE = 0.15  # satırların ~%15'ine hafif yazım hatası/kısaltma ekle
+
+
+def _inject_typo(text: str) -> str:
+    """Gerçek banka ekstrelerindeki kısaltma/yazım hatalarını taklit eder."""
+    text = re.sub(r"\bPAYMENT\b", "PYMT", text) if random.random() < 0.5 else text
+    text = re.sub(r"\bTRANSFER\b", "TRNSFR", text) if random.random() < 0.5 else text
+    if random.random() < 0.3 and len(text) > 3:
+        # rastgele bir karakteri sil (fat-finger hatası)
+        pos = random.randint(0, len(text) - 1)
+        text = text[:pos] + text[pos + 1:]
+    return text
 # (Genel bir havuz kullanmak "VODAFONE ONLINE COURSE" gibi saçma eşleşmeler
 # üretiyordu - bunu önlemek için kategoriye özel isimler tanımlandı.)
 CATEGORY_MERCHANTS = {
@@ -108,16 +131,29 @@ CATEGORY_MERCHANTS = {
 
 
 def generate_description(category: str) -> str:
-    templates = CATEGORY_TEMPLATES.get(category)
-    if not templates:
-        return "TRANSACTION"
-    template = random.choice(templates)
-    merchants = CATEGORY_MERCHANTS.get(category, [])
-    merchant = random.choice(merchants) if merchants else ""
-    return template.format(
-        merchant=merchant,
-        ref=fake.random_number(digits=5, fix_len=True),
-    ).replace("  ", " ").strip()
+    roll = random.random()
+    if roll < GENERIC_NOISE_RATE:
+        text = random.choice(GENERIC_TEMPLATES)
+    elif roll < GENERIC_NOISE_RATE + AMBIGUOUS_NOISE_RATE:
+        text = random.choice(AMBIGUOUS_TEMPLATES).format(
+            ref=fake.random_number(digits=5, fix_len=True)
+        )
+    else:
+        templates = CATEGORY_TEMPLATES.get(category)
+        if not templates:
+            text = "TRANSACTION"
+        else:
+            template = random.choice(templates)
+            merchants = CATEGORY_MERCHANTS.get(category, [])
+            merchant = random.choice(merchants) if merchants else ""
+            text = template.format(
+                merchant=merchant,
+                ref=fake.random_number(digits=5, fix_len=True),
+            ).replace("  ", " ").strip()
+
+    if random.random() < TYPO_RATE:
+        text = _inject_typo(text)
+    return text
 
 
 def enrich_with_synthetic_descriptions(input_path: str, output_path: str) -> pd.DataFrame:
