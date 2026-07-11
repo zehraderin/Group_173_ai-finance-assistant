@@ -74,10 +74,17 @@ Gerçek veri setlerindeki açıklama metinlerinin kategoriyle anlamsal ilişkisi
 -İlk sentetik veri denemesi aşırı temizdi (%100 doğruluk = overfitting), gerçekçi gürültü eklenerek düzeltildi
 -Unit test'lere ayrılan süre bir sonraki sprintte artırılmalı
 
-
 ---
 
 # Sprint 2
+
+
+
+- **Sprint board update**: Sprint board screenshotları:
+  
+<img width="943" height="496" alt="Screenshot 2026-07-11 at 18 51 18" src="https://github.com/user-attachments/assets/1721601b-e00c-4fea-8fc2-33e3bda85a8b" />
+
+  
 
 
 ---
